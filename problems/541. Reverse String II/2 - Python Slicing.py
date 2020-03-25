@@ -2,7 +2,6 @@
 Time: O(n)
 Space: O(n)
 '''
-
 class Solution:
     def reverseStr(self, s: str, k: int) -> str:
         charList = list(s)
