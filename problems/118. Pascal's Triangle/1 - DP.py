@@ -3,7 +3,7 @@ Time: O(numRows^2)
 Space: O(numRows^2)
 '''
 class Solution:
-    def generate(self, numRows: list):
+    def generate(self, numRows: int):
         triangle = []
 
         for rowIdx in range(numRows):
