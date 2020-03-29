@@ -1,13 +1,15 @@
-'''
-Time: O(n)
-Space: O(1)
-'''
 class Solution:
-    def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
-        maxOnes = curOnes = 0
+    """
+    Time: O(n)
+    Space: O(1)
+    """
+
+    def findMaxConsecutiveOnes(self, nums: list) -> int:
+        max_ones = cur_ones = 0
         for val in nums:
-            if val: curOnes += 1
+            if val:
+                cur_ones += 1
             else:
-                maxOnes = max(maxOnes, curOnes)
-                curOnes = 0
-        return max(maxOnes, curOnes)
+                max_ones = max(max_ones, cur_ones)
+                cur_ones = 0
+        return max(max_ones, cur_ones)

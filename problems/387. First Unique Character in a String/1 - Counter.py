@@ -1,12 +1,13 @@
 from collections import Counter
 
-"""
-n - len(s)
-Time: O(n)
-Space: O(n) - space for 'counter' dict
-"""
 
 class Solution:
+    """
+    n - len(s)
+    Time: O(n)
+    Space: O(n) - space for 'counter' dict
+    """
+
     def firstUniqChar(self, s: str) -> int:
         counter = Counter(s)
 

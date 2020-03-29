@@ -1,15 +1,16 @@
-'''
-Time: O(n)
-Space: O(1)
-'''
 class Solution:
-    def twoSum(self, nums: List[int], target: int) -> List[int]:
+    """
+    Time: O(n)
+    Space: O(1)
+    """
+
+    def twoSum(self, nums: list, target: int) -> list:
         current = 0
         last = len(nums) - 1
         while True:
             if nums[current] + nums[last] > target:
                 last -= 1
             elif nums[current] + nums[last] < target:
-                current +=1
+                current += 1
             else:
-                return [current+1, last+1]
+                return [current + 1, last + 1]

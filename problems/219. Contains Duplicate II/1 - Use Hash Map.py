@@ -1,8 +1,9 @@
-"""
-Time: O(n)
-Space: O(n) - set + hash map
-"""
 class Solution:
+    """
+    Time: O(n)
+    Space: O(n) - set + hash map
+    """
+
     def containsNearbyDuplicate(self, nums: list, k: int) -> bool:
         if len(nums) == len(set(nums)):
             return False

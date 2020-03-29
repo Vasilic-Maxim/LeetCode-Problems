@@ -1,18 +1,18 @@
-"""
-n = len(list1)
-m = len(list2)
-Time: O(n + m)
-Space: O(n + min(n, m))
-
-NOTE: min(n, m) is used for 'response' list. Let's assume that:
-list1 = [0,1,2,3,4]
-list2 = [4,3,2,1,0]
-
-In this case result = [1,2,3,4,5] because the minimum sum of indices will be 4 and
-this sum matches all the pairs from bath lists.
-"""
-
 class Solution:
+    """
+    n = len(list1)
+    m = len(list2)
+    Time: O(n + m)
+    Space: O(n + min(n, m))
+
+    NOTE: min(n, m) is used for 'response' list. Let's assume that:
+    list1 = [0,1,2,3,4]
+    list2 = [4,3,2,1,0]
+
+    In this case result = [1,2,3,4,5] because the minimum sum of indices will be 4 and
+    this sum matches all the pairs from bath lists.
+    """
+
     def findRestaurant(self, list1: list, list2: list) -> list:
         counted = {name: idx for idx, name in enumerate(list1)}
         min_sum = float('inf')
@@ -27,10 +27,3 @@ class Solution:
                     result.append(name)
 
         return result
-
-
-
-a = ["Shogun","Tapioca Express","Burger King","KFC"]
-b = ["KFC","Shogun","Burger King"]
-s = Solution()
-r = s.findRestaurant(a, b)

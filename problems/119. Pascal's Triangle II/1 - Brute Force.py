@@ -1,14 +1,15 @@
-'''
-This solution comes from problem 118 where we create entire triangle.
-
-Time: O(n^2)
-Space: O(n^2)
-'''
 class Solution:
-    def getRow(self, rowIndex: int):
+    """
+    This solution comes from problem 118 where we create entire triangle.
+
+    Time: O(n^2)
+    Space: O(n^2)
+    """
+
+    def getRow(self, row_index: int):
         triangle = []
 
-        for rowIdx in range(rowIndex + 1):
+        for rowIdx in range(row_index + 1):
             row = [None] * (rowIdx + 1)
             row[0] = row[-1] = 1
 

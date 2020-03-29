@@ -1,16 +1,16 @@
-'''
-Time: O(n*m)
-Space: O(1)
-'''
-
 class Solution:
+    """
+    Time: O(n*m)
+    Space: O(1)
+    """
+
     def setZeroes(self, matrix: list) -> None:
-        isZeroCol = False
-        
+        is_zero_col = False
+
         # Mark all row and col which should be filled with zeros
         for i in range(len(matrix)):
             if matrix[i][0] == 0:
-                isZeroCol = True
+                is_zero_col = True
 
             for j in range(1, len(matrix[i])):
                 if matrix[i][j] == 0:
@@ -19,32 +19,28 @@ class Solution:
         # FIRST iterate throw the cols
         for i in range(1, len(matrix[0])):
             if matrix[0][i] == 0:
-                self.nullifyCol(matrix, i, 1)
-        
+                self.nullify_col(matrix, i, 1)
+
         # Only after cols you can iterate throw the rows
         for i in range(len(matrix)):
             if matrix[i][0] == 0:
-                self.nullifyRow(matrix, i, 1)
-        
+                self.nullify_row(matrix, i, 1)
+
         # If there is '0' in (0, 0) cell then it came from this row
         # and entire row should be filled with zeros
         if matrix[0][0] == 0:
-            self.nullifyRow(matrix, 0)
-        
-        # If initially there were any zeros in first column then we fill it completly with zeros
-        if isZeroCol:
-            self.nullifyCol(matrix, 0)
+            self.nullify_row(matrix, 0)
 
-    def nullifyCol(self, matrix: list, colIdx: int, startFrom: int = 0) -> None:
-        for i in range(startFrom, len(matrix)):
-            matrix[i][colIdx] = 0
-    
-    def nullifyRow(self, matrix: list, rowIdx: int, startFrom: int = 0) -> None:
-        for i in range(startFrom, len(matrix[rowIdx])):
-            matrix[rowIdx][i] = 0
+        # If initially there were any zeros in first column then we fill it completely with zeros
+        if is_zero_col:
+            self.nullify_col(matrix, 0)
 
-s = Solution()
-data = [[0,1,2,0],[3,4,5,2],[1,3,1,5]]
-# [[0,0,0,0],[0,4,5,0],[0,3,1,0]]
-s.setZeroes(data)
-print(data)
+    @staticmethod
+    def nullify_col(matrix: list, col_idx: int, start_from: int = 0) -> None:
+        for i in range(start_from, len(matrix)):
+            matrix[i][col_idx] = 0
+
+    @staticmethod
+    def nullify_row(matrix: list, row_idx: int, start_from: int = 0) -> None:
+        for i in range(start_from, len(matrix[row_idx])):
+            matrix[row_idx][i] = 0

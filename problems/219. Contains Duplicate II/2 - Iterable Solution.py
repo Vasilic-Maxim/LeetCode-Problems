@@ -1,8 +1,9 @@
-"""
-Time: O(n)
-Space: O(n) - for set only
-"""
 class Solution(object):
+    """
+    Time: O(n)
+    Space: O(n) - for set only
+    """
+
     def containsNearbyDuplicate(self, nums, k):
         if len(nums) == len(set(nums)):
             return False

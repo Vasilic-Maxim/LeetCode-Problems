@@ -1,9 +1,10 @@
-'''
-Time: O(n)
-Space: O(1)
-'''
 class Solution:
-    def removeElement(self, nums: List[int], val: int) -> int:
+    """
+    Time: O(n)
+    Space: O(1)
+    """
+
+    def removeElement(self, nums: list, val: int) -> int:
         pointer = 0
         while pointer < len(nums):
             if nums[pointer] == val:
