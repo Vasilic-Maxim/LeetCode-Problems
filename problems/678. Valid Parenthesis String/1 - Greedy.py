@@ -1,4 +1,8 @@
 class Solution:
+    """
+    Time: O(n)
+    Space: O(1)
+    """
     def checkValidString(self, string: str) -> bool:
         low = high = 0
         for char in string:
