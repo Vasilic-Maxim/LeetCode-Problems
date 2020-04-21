@@ -10,6 +10,7 @@ class TreeNode:
 
 class Solution:
     """
+    https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/discuss/589051/morris-algorithm-on-time-on-space
     Time: O(n)
     Space: O(n) - if we exclude tree space (because it was expected) the space complexity will be O(1)
     """
