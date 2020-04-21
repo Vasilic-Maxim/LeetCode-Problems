@@ -13,6 +13,9 @@ class Solution:
 
     @staticmethod
     def validate(pal, left, right):
+        # alternative, but it takes more time
+        # return all(pal[k] == pal[right - k + left] for k in range(left, right))
+
         while left < right:
             if pal[left] != pal[right]:
                 return False
