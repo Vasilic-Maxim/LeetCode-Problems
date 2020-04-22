@@ -3,6 +3,10 @@ from typing import List
 
 
 class Solution:
+    """
+    Time: O(n)
+    Space: O(n)
+    """
     def subarraySum(self, nums: List[int], target: int) -> int:
         data = defaultdict(int)
         counter = summation = 0

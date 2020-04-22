@@ -2,6 +2,10 @@ from typing import List
 
 
 class Solution:
+    """
+    Time: O(n ** 2)
+    Space: O(1)
+    """
     def subarraySum(self, nums: List[int], k: int) -> int:
         counter = 0
         for i in range(len(nums)):
