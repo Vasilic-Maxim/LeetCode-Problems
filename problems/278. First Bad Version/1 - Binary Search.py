@@ -10,9 +10,8 @@ class Solution:
     """
 
     def firstBadVersion(self, n):
-        min_bad = n
         p1 = 1
-        p2 = n
+        p2 = min_bad = n
         while p1 != p2:
             center = p1 + (p2 - p1) // 2
             if isBadVersion(center):
