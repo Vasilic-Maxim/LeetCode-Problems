@@ -10,13 +10,13 @@ class Solution:
     """
 
     def firstBadVersion(self, n):
-        p1 = 1
-        p2 = min_bad = n
-        while p1 != p2:
-            center = p1 + (p2 - p1) // 2
+        left = 1
+        right = n
+        while left < right:
+            center = (left + right) // 2
             if isBadVersion(center):
-                p2 = min_bad = center
+                right = center
             else:
-                p1 = center + 1
+                left = center + 1
 
-        return min_bad
+        return right
