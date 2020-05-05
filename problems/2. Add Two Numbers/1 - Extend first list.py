@@ -21,11 +21,7 @@ class Solution:
         # their sum
         while first.next is not None and second.next is not None:
             first, second = first.next, second.next
-            # lines below can be replaced with (read note):
-            # to_add, first.val = divmod(first.val + second.val + to_add, 10)
-            to_add += first.val + second.val
-            first.val = to_add % 10
-            to_add //= 10
+            to_add, first.val = divmod(first.val + second.val + to_add, 10)
 
         # if there are any elements left in the second list
         # then add them to the first list
@@ -35,11 +31,7 @@ class Solution:
         # compute sums to remaining elements
         while first.next is not None:
             first = first.next
-            # lines below can be replaced with (read note):
-            # to_add, first.val = divmod(first.val + to_add, 10)
-            to_add = first.val + to_add
-            first.val = to_add % 10
-            to_add //= 10
+            to_add, first.val = divmod(first.val + to_add, 10)
 
         # create a new node for remainder if it is not empty
         if to_add:
