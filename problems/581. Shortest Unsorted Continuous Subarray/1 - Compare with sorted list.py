@@ -6,6 +6,7 @@ class Solution:
     Time: O(n * log_n) - for sorting
     Space: O(n) - sorted list
     """
+
     def findUnsortedSubarray(self, nums: List[int]) -> int:
         nums_sorted = sorted(nums)
         p1 = p2 = 0

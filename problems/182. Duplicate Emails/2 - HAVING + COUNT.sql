@@ -1,0 +1,4 @@
+SELECT DISTINCT Email
+FROM Person AS P1
+GROUP BY Email
+HAVING COUNT(Email) > 1
