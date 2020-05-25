@@ -15,8 +15,9 @@ class Solution:
     Space: O(n) - if we exclude tree space (because it was expected) the space complexity will be O(1)
     """
     def bstFromPreorder(self, pre_order: List[int]) -> TreeNode:
-        root = current = TreeNode(pre_order[0])
-        for val in pre_order[1:]:
+        iterator = iter(pre_order)
+        root = current = TreeNode(next(iterator))
+        for val in iterator:
             node = TreeNode(val)
             if node.val < current.val:
                 node.right = current
