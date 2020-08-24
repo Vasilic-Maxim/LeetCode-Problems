@@ -20,7 +20,10 @@ class Solution:
         if node is None:
             return 0
 
-        if node.left is None and node.right is None and is_left:
+        if is_left and self.is_leaf(node):
             return node.val
 
         return self.sumOfLeftLeaves(node.left, True) + self.sumOfLeftLeaves(node.right, False)
+
+    def is_leaf(self, node: TreeNode) -> bool:
+        return node.left is None and node.right is None
