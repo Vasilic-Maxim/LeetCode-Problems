@@ -15,10 +15,6 @@ class Solution:
             tail = tail.next
             length += 1
 
-        # no need to modify
-        if length == k:
-            return head
-
         # connect tail with head and do steps necessary
         tail.next = head
         for _ in range(length - k % length):
