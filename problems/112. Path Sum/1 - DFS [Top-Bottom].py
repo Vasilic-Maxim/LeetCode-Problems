@@ -6,6 +6,11 @@ class TreeNode:
 
 
 class Solution:
+    """
+    Time: O(n)
+    Space: O(n)
+    """
+
     def hasPathSum(self, root: TreeNode, path_sum: int) -> bool:
         if root is None:
             return False
@@ -13,8 +18,7 @@ class Solution:
         if root.left is None and root.right is None:
             return path_sum == root.val
 
-        if root.left is not None:
-            if self.hasPathSum(root.left, path_sum - root.val):
-                return True
-
-        return self.hasPathSum(root.right, path_sum - root.val)
+        return (
+            self.hasPathSum(root.right, path_sum - root.val) or
+            self.hasPathSum(root.left, path_sum - root.val)
+        )
