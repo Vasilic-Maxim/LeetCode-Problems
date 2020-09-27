@@ -1,3 +1,6 @@
+from typing import List
+
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -11,11 +14,11 @@ class Solution:
     Space: O(n)
     """
 
-    def preorderTraversal(self, root: TreeNode) -> List[int]:
+    def inorderTraversal(self, root: TreeNode) -> List[int]:
         def traverse(node: TreeNode):
             if node is not None:
-                yield node.val
                 yield from traverse(node.left)
+                yield node.val
                 yield from traverse(node.right)
 
         return [val for val in traverse(root)]
