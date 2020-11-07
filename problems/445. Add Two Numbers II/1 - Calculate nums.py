@@ -6,25 +6,25 @@ class ListNode:
 
 class Solution:
     """
-    n - max(len(first), len(second))
+    n - number of digits in the result
 
     Time: O(n)
     Space: O(n)
     """
-    def addTwoNumbers(self, first: ListNode, second: ListNode) -> ListNode:
-        nums_sum = self.getNumber(first) + self.getNumber(second)
-        result = None
+    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+        n1 = n2 = 0
+        while l1 is not None:
+            n1 = n1 * 10 + l1.val
+            l1 = l1.next
 
-        # make at least one iteration, special for zero-lists
-        while nums_sum or result is None:
-            result = ListNode(nums_sum % 10, result)
-            nums_sum //= 10
+        while l2 is not None:
+            n2 = n2 * 10 + l2.val
+            l2 = l2.next
+
+        carry = n1 + n2
+        result = None
+        while carry or result is None:
+            carry, val = divmod(carry, 10)
+            result = ListNode(val, result)
 
         return result
-
-    def getNumber(self, nums_list: ListNode) -> int:
-        num = 0
-        while nums_list is not None:
-            num = num * 10 + nums_list.val
-            nums_list = nums_list.next
-        return num

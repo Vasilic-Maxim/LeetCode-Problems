@@ -12,43 +12,37 @@ class Solution:
     Space: O(1)
     """
 
-    def addTwoNumbers(self, first: ListNode, second: ListNode) -> ListNode:
-        first_reversed = self.reverseList(first)
-        second_reversed = self.reverseList(second)
-        reversed_sum = self.getListsSum(first_reversed, second_reversed)
-        return self.reverseList(reversed_sum)
+    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+        reversed1 = self.reverse(l1)
+        reversed2 = self.reverse(l2)
+        result = self.merge(reversed1, reversed2)
+        return self.reverse(result)
 
-    def reverseList(self, linked_list):
-        pointer = None
-        while linked_list is not None:
-            tmp = linked_list.next
-            linked_list.next = pointer
-            pointer = linked_list
-            linked_list = tmp
-        return pointer
+    def reverse(self, head: ListNode) -> ListNode:
+        dummy = ListNode(0)
+        while head is not None:
+            tmp = head.next
+            head.next = dummy.next
+            dummy.next = head
+            head = tmp
 
-    def getListsSum(self, first: ListNode, second: ListNode) -> ListNode:
-        second = ListNode(None, second)
-        result = first = ListNode(None, first)
-        to_add = 0
-        while first.next is not None and second.next is not None:
-            first, second = first.next, second.next
+        return dummy.next
 
-            to_add += first.val + second.val
-            first.val = to_add % 10
-            to_add //= 10
+    def merge(self, l1: ListNode, l2: ListNode) -> ListNode:
+        dummy = l1 = ListNode(0, l1)
+        carry = 0
+        while l1.next is not None and l2 is not None:
+            carry, l1.next.val = divmod(l1.next.val + l2.val + carry, 10)
+            l1, l2 = l1.next, l2.next
 
-        if second.next is not None:
-            first.next = second.next
+        if l2 is not None:
+            l1.next = l2
 
-        while first.next is not None:
-            first = first.next
+        while l1.next is not None and carry:
+            l1 = l1.next
+            carry, l1.val = divmod(l1.val + carry, 10)
 
-            to_add = first.val + to_add
-            first.val = to_add % 10
-            to_add //= 10
+        if carry:
+            l1.next = ListNode(carry)
 
-        if to_add:
-            first.next = ListNode(to_add)
-
-        return result.next
+        return dummy.next
