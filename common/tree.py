@@ -15,7 +15,7 @@ class Tree:
         self.q = deque()
         self.next = 0
 
-    def insert(self, val) -> None:
+    def insert(self, val):
         node = TreeNode(val) if val is not None else val
         if self.root is None:
             self.root = node
@@ -30,6 +30,6 @@ class Tree:
         if val is not None:
             self.q.append(node)
 
-    def update(self, nums: List[Any]) -> None:
+    def update(self, nums: List[Any]):
         for num in nums:
             self.insert(num)
